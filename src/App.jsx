@@ -1,10 +1,13 @@
 import { useState } from 'react'
-import './App.css'
 import Input from './components/Input'
 import Plan from './components/Plan'
 import Addon from './components/Addon'
 import Step from './components/Step'
 import thankyouIcon from './assets/images/icon-thank-you.svg'
+import arcadeIcon from './assets/images/icon-arcade.svg'
+import advancedIcon from './assets/images/icon-advanced.svg'
+import proIcon from './assets/images/icon-pro.svg'
+import './App.css'
 
 function App() {
   const [ step, setStep ] = useState(1)
@@ -74,9 +77,9 @@ function App() {
           goPrevious={goPrevious}
         >
           <div>
-            <Plan value="arcade" amount="9"/>
-            <Plan value="advanced" amount="12"/>
-            <Plan value="pro" amount="15"/>
+            <Plan value="arcade" amount="9" icon={arcadeIcon}/>
+            <Plan value="advanced" amount="12" icon={advancedIcon}/>
+            <Plan value="pro" amount="15" icon={proIcon}/>
           </div>
           <div>
             <span>Monthly</span>

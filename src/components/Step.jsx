@@ -1,29 +1,21 @@
 import Button from './Button'
+import useStep from '../hooks/useStep'
 
-export default function Step({ 
-  title, description, children, number,
-  currentStep, goNext, goPrevious 
+export default function Step({
+  title, description, children
 }) {
-  function handleBackClick(e) {
-    e.preventDefault()
-    goPrevious()
-  }
-
-  function handleButtonClick() {
-    if (number > 4) return
-    goNext()
-  }
+  const { step, next, back } = useStep()
 
   return (
-    <section hidden={!(number === currentStep)}>
+    <section>
       <h1>{title}</h1>
       <p>{description}</p>
       <div>
         {children}
       </div>
-      {number > 1 && <a href="/" onClick={handleBackClick}>Go Back</a>}
-      <Button onClick={handleButtonClick}>
-        {number < 5 ? 'Next Step' : 'Confirm'}
+      {step > 0 && <Button href="#" onClick={back}>Go Back</Button>}
+      <Button onClick={next}>
+        {step < 5 ? 'Next Step' : 'Confirm'}
       </Button>
     </section>
   )

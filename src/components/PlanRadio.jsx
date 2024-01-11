@@ -1,4 +1,4 @@
-export default function Plan({ value, amount, icon }) {
+export default function PlanRadio({ value, amount, icon }) {
   const title = `${value.slice(0, 1).toUpperCase()}${value.slice(1)}`
   const iconAlt = `${title} plan icon`
 
